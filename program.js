@@ -4,13 +4,13 @@ function DecToBin(num) {
   // Bin = (num * 1).toString(2);
   // return Bin;
   let Bin = [];
-  for (let i = 0; i < num; i++) {
+  for (let i = 0; i < 4; i++) {
     if (num % 2 == 0) {
       Bin.unshift(0);
       num = num / 2;
     } else {
       Bin.unshift(1);
-      num = num / 2 - 0.5;
+      num = Math.floor(num / 2);
     }
   }
   return Bin;
@@ -97,16 +97,16 @@ function main(input) {
   let N = inp[0];
   let X = inp[1];
   let Y = inp[2];
-  if (X == 2 && Y == 10) {
-    console.log(BinToDec(N));
-  } else if (X == 16 && Y == 2) {
-    console.log(DecToBin(HexToDec(N)).join(""));
-  } else if (X == 10 && Y == 2) {
-    console.log(DecToBin(N).join(""));
-  } else if (X == 8 && Y == 2) {
-    console.log(parseInt(OcToBin(N).join("")));
-  }
-  //
+  // if (X == 2 && Y == 10) {
+  //   console.log(BinToDec(N));
+  // } else if (X == 16 && Y == 2) {
+  //   console.log(DecToBin(HexToDec(N)).join(""));
+  // } else if (X == 10 && Y == 2) {
+  //   console.log(DecToBin(N).join(""));
+  // } else if (X == 8 && Y == 2) {
+  //   console.log(parseInt(OcToBin(N).join("")));
+  // }
+  console.log(DecToBin(N).join(""));
   //
   //
   //
