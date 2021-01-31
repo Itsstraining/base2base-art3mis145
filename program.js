@@ -103,7 +103,7 @@ function main(input) {
   if (X == 2 && Y == 10) {
     console.log(BinToDec(N));
   } else if (X == 16 && Y == 2) {
-    console.log(DecToBin(HexToDec(N)).join(""));
+    console.log(DecToBin(HexToDec(N));
   } else if (X == 10 && Y == 2) {
     console.log(DecToBin(N));
   } else if (X == 8 && Y == 2) {
