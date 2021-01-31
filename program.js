@@ -1,7 +1,7 @@
 // Add new functions, variables here
 
 function DecToBin(num) {
-  Bin = (num * 1).toString(2);
+  let Bin = parseInt(num).toString(2);
   return Bin;
   // let Bin = [];
   // for (let i = 0; i < 4; i++) {
@@ -14,6 +14,11 @@ function DecToBin(num) {
   //   }
   // }
   // return Bin;
+}
+
+function DecToOc(num) {
+  let result = parseInt(num, 10).toString(8);
+  return result;
 }
 function BinToDec(num) {
   let n = num.split("");
@@ -62,6 +67,10 @@ function OcToBin(num) {
   }
   return Oct;
 }
+function BinToOc(num) {
+  let result = parseInt(num, 2).toString(8);
+  return result;
+}
 function HexToDec(num) {
   let Hex = [];
   for (let i = 0; i < num.length; i++) {
@@ -95,6 +104,11 @@ function OctoDec(num) {
   return result;
 }
 
+function BinToHex(num) {
+  let result = parseInt(num, 2).toString(16);
+  return result.toUpperCase;
+}
+
 function main(input) {
   let inp = input.split(" ");
   let N = inp[0];
@@ -110,9 +124,14 @@ function main(input) {
     console.log(parseInt(OcToBin(N).join("")));
   } else if (X == 8 && Y == 10) {
     console.log(OctoDec(N));
+  } else if (X == 16 && Y == 10) {
+    console.log(HexToDec(N));
+  } else if (X == 16 && Y == 8) {
+    console.log(DecToOc(HexToDec(N)));
   }
-
-  // console.log(DecToBin(N).join(""));
+  // console.log(DecToOc(HexToDec(N)));
+  // console.log(BinToOc(N));
+  // console.log(DecToBin(N));
   //
   //
   //
