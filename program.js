@@ -1,18 +1,7 @@
 // Add new functions, variables here
 
 function DecToBin(num) {
-  // Bin = (num * 1).toString(2);
-  // return Bin;
-  let Bin = [];
-  for (let i = 0; i < 4; i++) {
-    if (num % 2 == 0) {
-      Bin.unshift(0);
-      num = num / 2;
-    } else {
-      Bin.unshift(1);
-      num = Math.floor(num / 2);
-    }
-  }
+  Bin = (num * 1).toString(2);
   return Bin;
 }
 function BinToDec(num) {
