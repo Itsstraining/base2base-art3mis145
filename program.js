@@ -3,6 +3,17 @@
 function DecToBin(num) {
   Bin = (num * 1).toString(2);
   return Bin;
+  // let Bin = [];
+  // for (let i = 0; i < 4; i++) {
+  //   if (num % 2 == 0) {
+  //     Bin.unshift(0);
+  //     num = num / 2;
+  //   } else {
+  //     Bin.unshift(1);
+  //     num = Math.floor(num / 2);
+  //   }
+  // }
+  // return Bin;
 }
 function BinToDec(num) {
   let n = num.split("");
@@ -94,7 +105,7 @@ function main(input) {
   } else if (X == 16 && Y == 2) {
     console.log(DecToBin(HexToDec(N)).join(""));
   } else if (X == 10 && Y == 2) {
-    console.log(DecToBin(N).join(""));
+    console.log(DecToBin(N));
   } else if (X == 8 && Y == 2) {
     console.log(parseInt(OcToBin(N).join("")));
   } else if (X == 8 && Y == 10) {
