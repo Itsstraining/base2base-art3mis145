@@ -4,7 +4,7 @@ function DecToBin(num) {
   // Bin = (num * 1).toString(2);
   // return Bin;
   let Bin = [];
-  for (let i = 0; i < 999; i++) {
+  for (let i = 0; i < 4; i++) {
     if (num % 2 == 0) {
       Bin.unshift(0);
       num = num / 2;
