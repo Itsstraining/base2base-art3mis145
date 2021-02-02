@@ -12,7 +12,7 @@ function BinToDec(num) {
   for (let k = 0; k < b.length; k++) {
     sum = sum + b[k];
   }
-  return sum;
+  return sum.toString();
 }
 
 function BinToOc(num) {
@@ -48,7 +48,8 @@ function DecToHex(num) {
       result.push(remainder);
     }
   }
-  return result.reverse();
+  result.reverse();
+  return result.join("");
 }
 
 function DecToBin(num) {
@@ -176,6 +177,8 @@ function main(input) {
     console.log(HexToDec(N));
   } else if (X == 16 && Y == 8) {
     console.log(HexToOc(N));
+  } else if (X == 10 && Y == 16) {
+    console.log(DecToHex(N));
   }
   // console.log(OcToDec(N));
   // console.log(DecToOc(HexToDec(N)));
