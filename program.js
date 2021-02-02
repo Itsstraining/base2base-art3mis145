@@ -60,7 +60,7 @@ function DecToBin(num) {
     Bin.unshift(remainder);
     num = parseInt(num / 2);
   }
-  let result = parseInt(Bin.join(""));
+  let result = Bin.join("");
   return result.toString();
 }
 
@@ -155,7 +155,7 @@ function HexToBin(num) {
 function HexToOc(num) {
   let result = BinToOc(HexToBin(num));
   let s = parseInt(result.join(""));
-  return s.toString();
+  return s;
 }
 
 function main(input) {
