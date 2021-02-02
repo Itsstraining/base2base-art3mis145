@@ -22,7 +22,7 @@ function BinToOc(num) {
 
 function BinToHex(num) {
   let result = DecToHex(BinToDec(num));
-  return result.join("");
+  return result;
 }
 
 function DecToHex(num) {
@@ -104,7 +104,7 @@ function OcToBin(num) {
       Oct.push(bin7);
     }
   }
-  result = parseInt(Oct.join(""));
+  result = Oct.join("");
   return result.toString();
 }
 
@@ -179,6 +179,10 @@ function main(input) {
     console.log(HexToOc(N));
   } else if (X == 10 && Y == 16) {
     console.log(DecToHex(N));
+  } else if (X == 8 && Y == 16) {
+    console.log(OcToHex(N));
+  } else if (X == 2 && Y == 16) {
+    console.log(BinToHex(N));
   }
   // console.log(OcToDec(N));
   // console.log(DecToOc(HexToDec(N)));
