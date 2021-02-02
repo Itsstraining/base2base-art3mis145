@@ -170,7 +170,7 @@ function main(input) {
   } else if (X == 10 && Y == 2) {
     console.log(DecToBin(N));
   } else if (X == 8 && Y == 2) {
-    console.log(OcToBin(N));
+    console.log(parseInt(OcToBin(N)));
   } else if (X == 8 && Y == 10) {
     console.log(OcToDec(N));
   } else if (X == 16 && Y == 10) {
