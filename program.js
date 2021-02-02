@@ -1,30 +1,9 @@
 // Add new functions, variables here
 
-function DecToBin(num) {
-  let Bin = parseInt(num).toString(2);
-  return Bin;
-  // let Bin = [];
-  // for (let i = 0; i < 4; i++) {
-  //   if (num % 2 == 0) {
-  //     Bin.unshift(0);
-  //     num = num / 2;
-  //   } else {
-  //     Bin.unshift(1);
-  //     num = Math.floor(num / 2);
-  //   }
-  // }
-  // return Bin;
-}
-
-function DecToOc(num) {
-  let result = parseInt(num, 10).toString(8);
-  return result;
-}
 function BinToDec(num) {
-  let n = num.split("");
   let b = [];
-  for (let i = 0; i < n.length; i++) {
-    b.unshift(n[i]);
+  for (let i = 0; i < num.length; i++) {
+    b.unshift(num[i]);
   }
   for (let j = 0; j < b.length; j++) {
     b[j] = b[j] * Math.pow(2, j);
@@ -34,6 +13,65 @@ function BinToDec(num) {
     sum = sum + b[k];
   }
   return sum;
+}
+
+function BinToOc(num) {
+  let result = DecToOc(BinToDec(num));
+  return result;
+}
+
+function BinToHex(num) {
+  let result = DecToHex(BinToDec(num));
+  return result.join("");
+}
+
+function DecToHex(num) {
+  let remainder = 0;
+  let result = [];
+  while (num != 0) {
+    remainder = num % 16;
+    num = Math.floor(num / 16);
+
+    if (remainder == 10) {
+      result.push("A");
+    } else if (remainder == 11) {
+      result.push("B");
+    } else if (remainder == 12) {
+      result.push("C");
+    } else if (remainder == 13) {
+      result.push("D");
+    } else if (remainder == 14) {
+      result.push("E");
+    } else if (remainder == 15) {
+      result.push("F");
+    } else {
+      result.push(remainder);
+    }
+  }
+  return result.reverse();
+}
+
+function DecToBin(num) {
+  let Bin = [];
+  let remainder = 0;
+  while (num != 0) {
+    remainder = num % 2;
+    Bin.unshift(remainder);
+    num = parseInt(num / 2);
+  }
+  let result = parseInt(Bin.join(""));
+  return result.toString();
+}
+
+function DecToOc(num) {
+  let Oc = [];
+  remainder = 0;
+  while (num != 0) {
+    remainder = num % 8;
+    Oc.unshift(remainder);
+    num = parseInt(num / 8);
+  }
+  return Oc;
 }
 
 function OcToBin(num) {
@@ -65,12 +103,20 @@ function OcToBin(num) {
       Oct.push(bin7);
     }
   }
-  return Oct;
+  result = parseInt(Oct.join(""));
+  return result.toString();
 }
-function BinToOc(num) {
-  let result = parseInt(num, 2).toString(8);
+
+function OcToDec(num) {
+  let result = BinToDec(OcToBin(num));
   return result;
 }
+
+function OcToHex(num) {
+  let result = BinToHex(OcToBin(num));
+  return result;
+}
+
 function HexToDec(num) {
   let Hex = [];
   for (let i = 0; i < num.length; i++) {
@@ -99,14 +145,16 @@ function HexToDec(num) {
   }
   return sum;
 }
-function OctoDec(num) {
-  let result = parseInt(num, 8);
+
+function HexToBin(num) {
+  let result = DecToBin(HexToDec(num));
   return result;
 }
 
-function BinToHex(num) {
-  let result = parseInt(num, 2).toString(16);
-  return result.toUpperCase;
+function HexToOc(num) {
+  let result = BinToOc(HexToBin(num));
+  let s = parseInt(result.join(""));
+  return s.toString();
 }
 
 function main(input) {
@@ -117,24 +165,31 @@ function main(input) {
   if (X == 2 && Y == 10) {
     console.log(BinToDec(N));
   } else if (X == 16 && Y == 2) {
-    console.log(DecToBin(HexToDec(N)));
+    console.log(HexToBin(N));
   } else if (X == 10 && Y == 2) {
     console.log(DecToBin(N));
   } else if (X == 8 && Y == 2) {
-    console.log(parseInt(OcToBin(N).join("")));
+    console.log(OcToBin(N));
   } else if (X == 8 && Y == 10) {
-    console.log(OctoDec(N));
+    console.log(OcToDec(N));
   } else if (X == 16 && Y == 10) {
     console.log(HexToDec(N));
   } else if (X == 16 && Y == 8) {
-    console.log(DecToOc(HexToDec(N)));
+    console.log(HexToOc(N));
   }
+  // console.log(OcToDec(N));
   // console.log(DecToOc(HexToDec(N)));
   // console.log(BinToOc(N));
+  // console.log(DecToHex(N));
   // console.log(DecToBin(N));
-  //
-  //
-  //
+  // console.log(DecToOc(N));
+  // console.log(BinToOc(N));
+  // console.log(BinToDec(N));
+  // console.log(BinToHex(N));
+  // console.log(OcToBin(N));
+  // console.log(OcToHex(N));
+  // console.log(HexToBin(N));
+  // console.log(HexToOc(N));
 }
 
 //nhị phân:2(binary)
